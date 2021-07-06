@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block body %}
+   <header class="masthead" style="background-image: url('{{ url_for('static',filename='img/coding2-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panel </h1>
+            <span class="subheading">You can mannage your post and change them.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            
+             <h1>Basic Actions </h1>
+             <hr>
+             <a href="/dashboard"> <button class="btn btn-primary"> Dashbaord</button></a>
+             <a href="/logout"> <button class="btn btn-primary">Logout</button></a>
+             <hr>
+            
+
+<h1>Edit Posts</h1>
+<hr>
+<form name="sentMessage" id="contactForm" action= "/edit/{{post.sno}}" method="post" novalidate>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+              <!-- Here we are using some of attributes like name='name' which going to help in flask program -->
+              <input type="text" class="form-control" placeholder="Title" id=title name="title" value="{{post.title}}" required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>SubTitle</label>
+              <!-- Here we are using some of attributes like name='name' which going to help in flask program -->
+              <input type="text" class="form-control" placeholder="SubTitle" id="sub_title" name="sub_title" value="{{post.sub_title}}"required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Tagline</label>
+              <input type="text" class="form-control" placeholder="Tagline" id="tline"name="tline" value="{{post.tagline}}" required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Slug</label>
+              <input type="text" class="form-control" placeholder="Slug" id="slug"name="slug" value="{{post.slug}}" required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Content</label>
+              <textarea rows="5" class="form-control" placeholder="Content" id="content" name="content"  required data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>By User</label>
+              <input type="text" class="form-control" placeholder="By User" id="buser"name="buser" value="{{post.by_user}}"required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>ImgFile</label>
+              <input type="text" class="form-control" placeholder="ImageFile" id="imgfile"name="imgfile" value="{{post.img_file}}"required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+        </form>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
